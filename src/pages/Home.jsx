@@ -1,13 +1,20 @@
 import "@styles/home.css";
 import { Link } from "react-router-dom";
 
+import zknCoins from "@assets/images/menu/zkn_coins.png";
+import pickAChance from "@assets/images/menu/pick-a-chance.png";
+import myItems from "@assets/images/menu/my_items.png";
+import historyImg from "@assets/images/menu/history.png";
+import aboutImg from "@assets/images/menu/about.png";
+
 const menu = [
-  { id: 1, name: "Item shop", path: "/item-shop", image: `${import.meta.env.BASE_URL}images/menu/zkn_coins.png` },
-  { id: 2, name: "Pick-a-Chance", path: "/pick-a-chance", image: `${import.meta.env.BASE_URL}images/menu/pick-a-chance.png` },
-  { id: 3, name: "My Items", path: "/my-items", image: `${import.meta.env.BASE_URL}images/menu/my_items.png` },
-  { id: 4, name: "History", path: "/history", image: `${import.meta.env.BASE_URL}images/menu/history.png` },
-  { id: 5, name: "About", path: "/about", image: `${import.meta.env.BASE_URL}images/menu/about.png` },
+  { id: 1, name: "Item shop", path: "/item-shop", image: zknCoins },
+  { id: 2, name: "Pick-a-Chance", path: "/pick-a-chance", image: pickAChance },
+  { id: 3, name: "My Items", path: "/my-items", image: myItems },
+  { id: 4, name: "History", path: "/history", image: historyImg },
+  { id: 5, name: "About", path: "/about", image: aboutImg },
 ];
+
 const games = [];
 
 export function Home() {
