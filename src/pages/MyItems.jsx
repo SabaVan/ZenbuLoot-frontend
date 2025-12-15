@@ -7,25 +7,9 @@ import { InvestModal } from "@components/InvestModal";
 import { useInvestments } from "@/hooks/useInvestments";
 import { useContractBalance } from "@/context/BalanceContext";
 import "@styles/my-items.css";
-import redOmamori from "@assets/images/red_omamori.png";
-import blueOmamori from "@assets/images/blue_omamori.png";
-import greenOmamori from "@assets/images/green_omamori.png";
-import yellowOmamori from "@assets/images/yellow_omamori.png";
-import orangeOmamori from "@assets/images/orange_omamori.png";
-import violetOmamori from "@assets/images/violet_omamori.png";
-import placeholderImg from "@assets/images/placeholder.png";
-
-const imagesMap = {
-  "/images/red_omamori.png": redOmamori,
-  "/images/blue_omamori.png": blueOmamori,
-  "/images/green_omamori.png": greenOmamori,
-  "/images/yellow_omamori.png": yellowOmamori,
-  "/images/violet_omamori.png": violetOmamori,
-  "/images/orange_omamori.png": orangeOmamori,
-};
-
 
 export function MyItems() {
+  const base = import.meta.env.BASE_URL;
   const {
     tokens,
     loading,
@@ -338,11 +322,10 @@ export function MyItems() {
 
               <div className="my-items-card-image">
                 <img
-                  src={imagesMap[t.itemType.imageURI] || placeholderImg}
+                  src={t.itemType.imageURI ? `${base}${t.itemType.imageURI}` : `${base}images/placeholder.png`}
                   alt={t.itemType.name}
-                  onError={(e) => (e.target.src = placeholderImg)}
+                  onError={(e) => (e.target.src = `${base}images/placeholder.png`)}
                 />
-
               </div>
 
               <div className="my-items-card-body">
