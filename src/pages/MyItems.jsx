@@ -209,48 +209,48 @@ export function MyItems() {
               <div className="my-items-range-left">
                 <div className="my-items-range-top">
                   <div className="my-items-range-slider">
-                <Range
-                  step={0.001}
-                  min={0}
-                  max={1}
-                  values={sliderValues}
-                  onChange={handleSliderChange}
-                  renderTrack={({ props, children }) => (
-                    <div
-                      {...props}
-                      className="my-items-range-track"
-                      style={{ ...props.style, position: "relative" }}
-                    >
-                      <div
-                        className="my-items-range-selection"
-                        style={{
-                          position: "absolute",
-                          left: `${sliderValues[0] * 100}%`,
-                          width: `${(sliderValues[1] - sliderValues[0]) * 100}%`,
-                          top: 0,
-                          bottom: 0,
-                          borderRadius: 3,
-                        }}
-                      />
-                      {children}
-                    </div>
-                  )}
-                  renderThumb={({ props, index }) => {
-                    const { transform, ...restStyle } = props.style || {};
-                    const { key, ...restProps } = props; // remove key from spread
-                    return (
-                      <div
-                        {...restProps} // spread everything except key
-                        key={key} // pass key directly
-                        className={`my-items-range-thumb ${index === 0 ? "start" : "end"}`}
-                        style={{
-                          ...restStyle,
-                          transform: `translate(-50%, -50%) ${transform || ""}`,
-                        }}
-                      />
-                    );
-                  }}
-                />
+                    <Range
+                      step={0.001}
+                      min={0}
+                      max={1}
+                      values={sliderValues}
+                      onChange={handleSliderChange}
+                      renderTrack={({ props, children }) => (
+                        <div
+                          {...props}
+                          className="my-items-range-track"
+                          style={{ ...props.style, position: "relative" }}
+                        >
+                          <div
+                            className="my-items-range-selection"
+                            style={{
+                              position: "absolute",
+                              left: `${sliderValues[0] * 100}%`,
+                              width: `${(sliderValues[1] - sliderValues[0]) * 100}%`,
+                              top: 0,
+                              bottom: 0,
+                              borderRadius: 3,
+                            }}
+                          />
+                          {children}
+                        </div>
+                      )}
+                      renderThumb={({ props, index }) => {
+                        const { transform, ...restStyle } = props.style || {};
+                        const { key, ...restProps } = props; // remove key from spread
+                        return (
+                          <div
+                            {...restProps} // spread everything except key
+                            key={key} // pass key directly
+                            className={`my-items-range-thumb ${index === 0 ? "start" : "end"}`}
+                            style={{
+                              ...restStyle,
+                              transform: `translate(-50%, -50%) ${transform || ""}`,
+                            }}
+                          />
+                        );
+                      }}
+                    />
                   </div>
                 </div>
 
@@ -321,9 +321,9 @@ export function MyItems() {
 
               <div className="my-items-card-image">
                 <img
-                  src={t.itemType.imageURI || "/public/images/placeholder.png"}
+                  src={t.itemType.imageURI || `${import.meta.env.BASE_URL}images/placeholder.png`}
                   alt={t.itemType.name}
-                  onError={(e) => (e.target.src = "/public/images/placeholder.png")}
+                  onError={(e) => (e.target.src = `${import.meta.env.BASE_URL}images/placeholder.png`)}
                 />
               </div>
 
