@@ -9,7 +9,7 @@ import { useContractBalance } from "@/context/BalanceContext";
 import "@styles/my-items.css";
 
 export function MyItems() {
-  const base = import.meta.env.BASE_URL;
+  const base = import.meta.env.BASE_URL || '/ZenbuLoot-frontend/';
   const {
     tokens,
     loading,

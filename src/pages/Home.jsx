@@ -1,7 +1,7 @@
 import "@styles/home.css";
 import { Link } from "react-router-dom";
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL || '/ZenbuLoot-frontend/';
 
 const menu = [
   { id: 1, name: "Item shop", path: "/item-shop", image: `${base}images/menu/zkn_coins.png` },
