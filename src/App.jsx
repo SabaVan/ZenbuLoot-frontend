@@ -1,5 +1,4 @@
-// App.jsx
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; // <-- HashRouter
 import { Navbar } from "@components/Navbar";
 import { Home } from "@pages/Home";
 import { PickAChance } from "@pages/PickAChance";
@@ -9,7 +8,7 @@ import { MyItems } from "@pages/MyItems";
 import { Layout } from "@components/Layout";
 import { WalletProvider } from "@/context/WalletContext";
 import { BalanceProviderWrapper } from "@components/BalanceProviderWrapper";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { History } from "@pages/History";
 import { ContractsProvider } from "@/context/ContractsContext";
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,7 +29,7 @@ function App() {
       />
       <ContractsProvider>
         <WalletProvider>
-          <BalanceProviderWrapper> {/* Use the wrapper instead of ContractBalanceProvider directly */}
+          <BalanceProviderWrapper>
             <Router>
               <Navbar />
               <Routes>
