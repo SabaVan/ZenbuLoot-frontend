@@ -3,9 +3,12 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
-  base: '/ZenbuLoot-frontend/',
+  // Ensure this matches your GitHub repo name exactly
+  base: '/ZenbuLoot-frontend/', 
   plugins: [react()],
   build: {
+    outDir: 'docs',      // Redirects build output to /docs for GH Pages
+    emptyOutDir: true,   // Clears the old files in /docs before building new ones
     sourcemap: false
   },
   resolve: {
@@ -23,8 +26,8 @@ export default defineConfig({
     }
   },
   server: {
-    host: '0.0.0.0', // listen on all interfaces
-    port: 5173,       // default Vite port, can change if needed
-    strictPort: false // allows automatic increment if port is busy
+    host: '0.0.0.0',
+    port: 5173,
+    strictPort: false
   }
 });
