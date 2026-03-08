@@ -8,7 +8,7 @@ import { ethers } from "ethers";
 export const useHistory = () => {
   const { getZKNLocks, getETHLocks, getExpectedProfit, feeSettings } = useInvestments();
   const { decimals } = useContractSettings();
-  const { lootRef, vaultRef, getContractWithSigner } = useContracts();
+  const { lootRef, vaultRef, zknRef, getContractWithSigner } = useContracts();
   const { fetchToken } = useOmamoriNFT();
 
   const [reinvestDuration, setReinvestDuration] = useState(30 * 24 * 60 * 60);
@@ -299,7 +299,7 @@ export const useHistory = () => {
         } else if (mode === "processQueue") {
           await contract.processQueue(1);
         } else {
-          await contract.unlockZKN(indexes);
+          await zknRef.unlockZKN(indexes);
         }
       } else {
         if (mode === "deposit") {

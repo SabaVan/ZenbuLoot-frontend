@@ -26,7 +26,7 @@ export const ContractBalanceProvider = ({ children, address, connected }) => {
     try {
       const [bal, available, tokenDecimals] = await Promise.all([
         zknRef.current.balanceOf(addr),
-        lootRef.current.getAvailableZKN(addr),
+        zknRef.current.getAvailableZKN(addr),
         zknRef.current.decimals(),
       ]);
 
@@ -58,7 +58,7 @@ export const ContractBalanceProvider = ({ children, address, connected }) => {
     try {
       const [ethLocked, zknLocked] = await Promise.all([
         vaultRef.current.totalLockedETH(addr),
-        lootRef.current.userTotalZKNLocked(addr),
+        zknRef.current.userTotalZKNLocked(addr),
       ]);
 
       if (!isMounted.current) return;

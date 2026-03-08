@@ -7,7 +7,7 @@ import { useContractBalance } from "@context/BalanceContext";
 
 export function useInvestments() {
     const { address } = useWallet();
-    const { vaultRef, lootRef, getSigner } = useContracts();
+    const { vaultRef, lootRef, zknRef, getSigner } = useContracts();
     const { availableEthInVault } = useContractBalance();
     const [feeSettings, setFeeSettings] = useState(null);
 
@@ -54,8 +54,8 @@ export function useInvestments() {
         if (!address) return [];
 
         try {
-            const lockLength = await lootRef.current.getLockLength(address);
-            return await lootRef.current.getLocksRange(address, 0, lockLength);
+            const lockLength = await zknRef.current.getLockLength(address);
+            return await zknRef.current.getLocksRange(address, 0, lockLength);
         } catch (err) {
             console.warn("Failed fetching ZKN locks:", err);
             return [];
